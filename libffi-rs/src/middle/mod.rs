@@ -185,7 +185,7 @@ impl Cif {
         );
 
         low::call::<R>(
-            &self.cif as *const _ as *mut _,
+            &raw const self.cif as *mut _,
             fun,
             args.as_ptr() as *mut *mut c_void,
         )
@@ -201,7 +201,7 @@ impl Cif {
     /// This can be used for passing a `middle::Cif` to functions from the
     /// [`low`](crate::low) and [`raw`](crate::raw) modules.
     pub fn as_raw_ptr(&self) -> *mut low::ffi_cif {
-        &self.cif as *const _ as *mut _
+        &raw const self.cif as *mut _
     }
 }
 

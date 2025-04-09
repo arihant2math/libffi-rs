@@ -100,7 +100,7 @@ impl CodePtr {
     }
 
     pub(crate) unsafe fn as_any_ref_<T>(&self) -> &T {
-        &*(&self.0 as *const _ as *const T)
+        &*(&raw const self.0 as *const T)
     }
 
     /// Gets the code pointer typed as a `const void*`.
